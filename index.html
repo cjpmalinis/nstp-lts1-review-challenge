@@ -24,6 +24,7 @@
           <p class="eyebrow">LITERACY TRAINING SERVICE 1</p>
           <h1>Review. Think.<br><span>Challenge yourself.</span></h1>
           <p class="hero-copy">Practice the important concepts from your LTS 1 modules through challenging, scenario-based questions.</p>
+          <p class="instructor-line">INSTRUCTOR: <strong>CELITO JOE M. PERILLO</strong></p>
         </div>
         <div class="panel setup-panel">
           <div class="section-heading">
@@ -35,7 +36,12 @@
               <input id="studentName" type="text" maxlength="40" placeholder="Enter your full name" autocomplete="name">
             </label>
             <label>Class / Section
-              <input id="studentClass" type="text" maxlength="30" placeholder="e.g. LTS 1 – BS...">
+              <select id="studentClass" required>
+                <option value="">Select your class / section</option>
+                <option value="BSED 1- MATHEMATICS">BSED 1- MATHEMATICS</option>
+                <option value="BSED 1 - SOCIAL STUDIES">BSED 1 - SOCIAL STUDIES</option>
+                <option value="BECED 1-A">BECED 1-A</option>
+              </select>
             </label>
             <label>Number of questions
               <select id="questionCount">
@@ -138,7 +144,7 @@
         <button id="backFromBoard" class="text-btn" type="button">← Back</button>
       </section>
     </main>
-    <footer>STUDY SMART · SERVE WITH PURPOSE</footer>
+    <footer>INSTRUCTOR: CELITO JOE M. PERILLO · STUDY SMART · SERVE WITH PURPOSE</footer>
   </div>
   <script src="questions.js"></script>
   <script src="config.js"></script>

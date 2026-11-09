@@ -59,3 +59,12 @@ PROJECT CONFIGURATION
 The config.js file has already been filled with the Supabase Project URL and the publishable key you supplied.
 The application sends this publishable key using the apikey header only (the current Supabase format).
 Before publishing, run supabase_setup.sql in this project's Supabase SQL Editor.
+
+CLASS / SECTION OPTIONS
+- BSED 1- MATHEMATICS
+- BSED 1 - SOCIAL STUDIES
+- BECED 1-A
+
+INSTRUCTOR DISPLAY
+- CELITO JOE M. PERILLO
+The class/section field is now a required dropdown to keep leaderboard section names consistent.
