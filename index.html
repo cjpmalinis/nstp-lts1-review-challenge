@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <title>NSTP LTS 1 | Review Challenge</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand-mark">LTS 1</div>
+      <div class="brand-copy">
+        <strong>NSTP LTS 1</strong>
+        <span>REVIEW CHALLENGE</span>
+      </div>
+      <button id="leaderboardTop" class="top-link" type="button">Class leaderboard</button>
+    </header>
+
+    <main>
+      <section id="homeScreen" class="screen">
+        <div class="hero">
+          <p class="eyebrow">LITERACY TRAINING SERVICE 1</p>
+          <h1>Review. Think.<br><span>Challenge yourself.</span></h1>
+          <p class="hero-copy">Practice the important concepts from your LTS 1 modules through challenging, scenario-based questions.</p>
+        </div>
+        <div class="panel setup-panel">
+          <div class="section-heading">
+            <div><p class="eyebrow">READY PLAYER?</p><h2>Set up your game</h2></div>
+            <span class="question-count">46 QUESTIONS</span>
+          </div>
+          <div class="form-grid">
+            <label>Student name
+              <input id="studentName" type="text" maxlength="40" placeholder="Enter your full name" autocomplete="name">
+            </label>
+            <label>Class / Section
+              <input id="studentClass" type="text" maxlength="30" placeholder="e.g. LTS 1 – BS...">
+            </label>
+            <label>Number of questions
+              <select id="questionCount">
+                <option value="10">10 Questions</option>
+                <option value="20" selected>20 Questions</option>
+                <option value="all">All 46 Questions</option>
+              </select>
+            </label>
+            <label>Difficulty
+              <select id="difficulty">
+                <option value="both" selected>Average + Difficult</option>
+                <option value="Average">Average only</option>
+                <option value="Difficult">Difficult only</option>
+              </select>
+            </label>
+            <label class="full-width">Module
+              <select id="moduleFilter"><option value="all">All Modules</option></select>
+            </label>
+          </div>
+          <button id="startBtn" class="primary-btn full-width" type="button">START REVIEW <span>→</span></button>
+          <p class="fine-print">20 seconds per question · 10 points per correct answer · Questions and choices are randomized</p>
+        </div>
+        <div class="home-actions">
+          <button id="leaderboardHome" class="secondary-btn" type="button">View class leaderboard</button>
+          <span id="connectionStatus" class="connection-status">Checking leaderboard setup…</span>
+        </div>
+      </section>
+
+      <section id="gameScreen" class="screen hidden">
+        <div class="game-topline">
+          <span class="eyebrow">NSTP LTS 1 · REVIEW CHALLENGE</span>
+          <strong id="progressText">1 / 20</strong>
+        </div>
+        <div class="progress-track"><div id="progressBar" class="progress-fill"></div></div>
+        <div class="question-meta">
+          <span id="moduleLabel" class="module-label"></span>
+          <span id="difficultyLabel" class="difficulty-label"></span>
+        </div>
+        <article class="question-panel">
+          <div class="question-label">QUESTION <span id="questionNumber">01</span></div>
+          <h2 id="questionText"></h2>
+          <div class="timer-row">
+            <div class="timer-track"><div id="timerBar" class="timer-fill"></div></div>
+            <strong id="timerText">20s</strong>
+          </div>
+          <div id="options" class="options-list"></div>
+          <div id="feedback" class="feedback hidden" aria-live="polite"></div>
+          <div class="question-footer">
+            <span id="scoreLive">SCORE: 0</span>
+            <button id="continueBtn" class="primary-btn continue-btn hidden" type="button">CONTINUE →</button>
+          </div>
+        </article>
+      </section>
+
+      <section id="resultScreen" class="screen hidden">
+        <div class="result-heading">
+          <p class="eyebrow">ROUND COMPLETE</p>
+          <h1>Nice work, <span id="resultName">Student</span>!</h1>
+          <p>Your practice round is finished. Review your result below.</p>
+        </div>
+        <div class="result-card panel">
+          <div class="score-ring"><strong id="finalScore">0</strong><span>POINTS</span></div>
+          <div class="result-stats">
+            <div><strong id="correctCount">0 / 20</strong><span>Correct answers</span></div>
+            <div><strong id="accuracy">0%</strong><span>Accuracy</span></div>
+            <div><strong id="classResult">—</strong><span>Class / Section</span></div>
+          </div>
+          <p id="resultRemark" class="result-remark"></p>
+          <p id="saveStatus" class="save-status">Saving your score…</p>
+        </div>
+        <div class="result-actions">
+          <button id="playAgainBtn" class="primary-btn" type="button">PLAY AGAIN</button>
+          <button id="viewBoardBtn" class="secondary-btn" type="button">CLASS LEADERBOARD</button>
+          <button id="homeBtn" class="text-btn" type="button">Back to home</button>
+        </div>
+      </section>
+
+      <section id="leaderboardScreen" class="screen hidden">
+        <div class="leaderboard-heading">
+          <p class="eyebrow">NSTP LTS 1</p>
+          <h1>Class leaderboard</h1>
+          <p>See how students are doing across sections.</p>
+        </div>
+        <div class="panel leaderboard-panel">
+          <div class="leaderboard-tools">
+            <label>Filter by class / section
+              <select id="leaderboardFilter"><option value="all">All classes</option></select>
+            </label>
+            <button id="refreshBoardBtn" class="secondary-btn small-btn" type="button">Refresh</button>
+          </div>
+          <div id="leaderboardStatus" class="board-status">Loading scores…</div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Rank</th><th>Student</th><th>Class / Section</th><th>Score</th><th>Accuracy</th></tr></thead>
+              <tbody id="leaderboardRows"></tbody>
+            </table>
+          </div>
+          <p class="fine-print">Scores are ranked by points, then accuracy. Only the best score per student and class is displayed.</p>
+        </div>
+        <button id="backFromBoard" class="text-btn" type="button">← Back</button>
+      </section>
+    </main>
+    <footer>STUDY SMART · SERVE WITH PURPOSE</footer>
+  </div>
+  <script src="questions.js"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
